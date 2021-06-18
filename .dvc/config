@@ -1,2 +1,2 @@
 ['remote "baluwe"']
-    url = ../baluwe.s3.amazonaws.com
+    url = s3://baluwe/cliffhanger
