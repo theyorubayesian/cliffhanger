@@ -1,6 +1,6 @@
+import pandas as pd
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
-import pandas as pd
 from pydantic import BaseModel
 from pydantic import Field
 
@@ -43,7 +43,6 @@ async def root():
 
 @app.post("/model/")
 async def predict(data: Input):
-
     model = load_asset("trained_model.pkl")
     encoder = load_asset("encoder.pkl")
     lb = load_asset("lb.pkl")
