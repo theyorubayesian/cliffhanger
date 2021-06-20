@@ -6,7 +6,7 @@ from cliffhanger.ml.model import compute_model_metrics
 from cliffhanger.ml.train_model import cat_features
 
 
-def test_model(data, cat_cols: list = None):
+def model_performance(data, cat_cols: list = None):
     model = load_asset("trained_model.pkl")
     encoder = load_asset("encoder.pkl")
     lb = load_asset("lb.pkl")
