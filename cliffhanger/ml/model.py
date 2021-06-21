@@ -1,8 +1,9 @@
-from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import fbeta_score
+from sklearn.metrics import precision_score
+from sklearn.metrics import recall_score
 
 
-# Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
     """
     Trains a machine learning model and returns it.

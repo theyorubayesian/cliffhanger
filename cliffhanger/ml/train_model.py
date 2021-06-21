@@ -56,3 +56,10 @@ def train(
     preds = inference(model, X_test)
     precision, recall, fbeta = compute_model_metrics(y_test, preds)
     return model, precision, recall, fbeta
+
+
+if __name__ == "__main__":
+    _, precision, recall, fbeta = train()
+    print(f"Precision: {precision}")
+    print(f"Recall: {recall}")
+    print(f"Fbeta: {fbeta}")
