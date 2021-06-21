@@ -38,4 +38,4 @@ def model_performance(data, cat_cols: list = None):
                 "fbeta": fbeta
             })
         performance_df.append(feature_performance, ignore_index=True)
-    performance_df.to_csv("Model_Performance.csv", index=False)
+    performance_df.to_csv("slice_output.txt", index=False)
