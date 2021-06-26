@@ -6,11 +6,15 @@ from sklearn.model_selection import train_test_split
 
 from cliffhanger import PROJECT_FOLDER
 from cliffhanger.ml.data import process_data
+from cliffhanger.ml.evaluate import evaluate_model
 from cliffhanger.ml.model import compute_model_metrics
 from cliffhanger.ml.model import inference
 from cliffhanger.ml.model import train_model
 
 DATA_FOLDER = os.path.join(PROJECT_FOLDER, "data")
+OUTPUT_FOLDER = os.path.join(PROJECT_FOLDER, "outputs")
+os.makedirs(OUTPUT_FOLDER, exist_ok=True)
+
 cat_features = [
     "workclass",
     "education",
@@ -23,10 +27,7 @@ cat_features = [
 ]
 
 
-def train(
-        dataset_name: str = 'clean_census.csv',
-        cat_cols: list = None
-):
+def main(dataset_name: str = "clean_census.csv", cat_cols: list = None):
     cat_cols = cat_cols or cat_features
     data_path = os.path.join(DATA_FOLDER, dataset_name)
     data = pd.read_csv(data_path)
@@ -41,7 +42,7 @@ def train(
         label="salary",
         training=False,
         encoder=encoder,
-        lb=lb
+        lb=lb,
     )
 
     model = train_model(X_train, y_train)
@@ -55,11 +56,12 @@ def train(
 
     preds = inference(model, X_test)
     precision, recall, fbeta = compute_model_metrics(y_test, preds)
+    evaluate_model(test_df, cat_cols, OUTPUT_FOLDER, model, encoder, lb)
     return model, precision, recall, fbeta
 
 
 if __name__ == "__main__":
-    _, precision, recall, fbeta = train()
+    _, precision, recall, fbeta = main()
     print(f"Precision: {precision}")
     print(f"Recall: {recall}")
     print(f"Fbeta: {fbeta}")

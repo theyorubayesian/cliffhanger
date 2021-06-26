@@ -7,6 +7,7 @@ ASSET_PATH = os.path.join(PROJECT_FOLDER, "cliffhanger", "model")
 
 
 def load_asset(filename, asset_path: str = ASSET_PATH):
-    with open(os.path.join(asset_path, filename), "wb") as f:
+    print(f"Loading asset: {filename}")
+    with open(os.path.join(asset_path, filename), "rb") as f:
         asset = pickle.load(f)
     return asset

@@ -1,7 +1,7 @@
-from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import fbeta_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
+from sklearn.naive_bayes import GaussianNB
 
 
 def train_model(X_train, y_train):
@@ -19,7 +19,7 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
-    model = LogisticRegression()
+    model = GaussianNB()
     model.fit(X_train, y_train)
     return model
 
@@ -47,7 +47,8 @@ def compute_model_metrics(y, preds):
 
 
 def inference(model, X):
-    """ Run model inferences and return the predictions.
+    """
+    Run model inferences and return the predictions.
 
     Inputs
     ------
