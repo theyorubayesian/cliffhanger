@@ -16,6 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - uses: iterative/setup-dvc@1
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
@@ -42,6 +43,5 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
     - name: Version Data
-      uses: iterative/setup-dvc@1
       run: |
         dvc pull
