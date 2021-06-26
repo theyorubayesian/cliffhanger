@@ -1,5 +1,7 @@
 /.idea
 /.vscode
+.DS_Store
 *.ipynb_checkpoints
 .env
 /baluwe*
+*__pycache__
