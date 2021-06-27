@@ -1,1 +1,1 @@
-web: uvicorn cliffhanger.main:app
+web: uvicorn cliffhanger.main:app --host=0.0.0.0 --port=${PORT:-5000}
