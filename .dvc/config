@@ -1,2 +1,4 @@
+[core]
+    remote = baluwe
 ['remote "baluwe"']
     url = s3://baluwe/cliffhanger
