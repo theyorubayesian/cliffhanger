@@ -1,7 +1,8 @@
 import json
+
 import requests
 
-url = 'https://hardy-cliffhanger.herokuapp.com/model/'
+url = "https://hardy-cliffhanger.herokuapp.com/model/"
 sample = {
     "workclass": "Private",
     "education": "Bachelors",
@@ -16,10 +17,10 @@ sample = {
     "education_num": 7,
     "capital_gain": 0,
     "capital_loss": 0,
-    "hours_per_week": 60
+    "hours_per_week": 60,
 }
 
-headers = {'Content-type': 'application/json'}
+headers = {"Content-type": "application/json"}
 response = requests.post(url, data=json.dumps(sample), headers=headers)
 print("Status Code: ", response.status_code)
 print("Prediction: ", response.text)
