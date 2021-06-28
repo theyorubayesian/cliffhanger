@@ -1,4 +1,4 @@
-import os.path
+import os
 
 import pandas as pd
 from fastapi import FastAPI
@@ -11,12 +11,14 @@ from cliffhanger.ml.model import inference
 from cliffhanger.ml.train import cat_features
 from cliffhanger.utils import load_asset
 
-if "DYNO" in os.environ and os.path.isdir("../.dvc"):
+if "DYNO" in os.environ and os.path.isdir("./.dvc"):
     print("Running DVC")
     os.system("dvc config core.no_scm true")
     if os.system("dvc pull") != 0:
         exit("dvc pull failed")
-    os.system("rm -r .dvc .apt/usr/lib/dvc")
+    os.system("rm -r ./.dvc ./apt/usr/lib/dvc")
+else:
+    print("dvc operation not performed")
 
 app = FastAPI()
 
