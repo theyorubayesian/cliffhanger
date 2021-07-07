@@ -1,5 +1,5 @@
 import pytest
-from starlette.testclient import TestClient
+from fastapi.testclient import TestClient
 
 from cliffhanger.main import app
 
@@ -12,19 +12,19 @@ def client():
 @pytest.fixture()
 def below_50k_example():
     return {
-        "age": 34,
-        "fnlgt": 170772,
+        "age": 21,
+        "fnlgt": 242912,
         "education-num": 9,
         "capital-gain": 0,
         "capital-loss": 0,
-        "hours-per-week": 50,
+        "hours-per-week": 35,
         "workclass": "Private",
         "education": "HS-grad",
         "marital-status": "Never-married",
-        "occupation": "Craft-repair",
-        "relationship": "Husband",
+        "occupation": "Other-service",
+        "relationship": "Other-relative",
         "race": "White",
-        "sex": "Male",
+        "sex": "Female",
         "native-country": "United-States",
     }
 
@@ -60,7 +60,7 @@ def test_root(client):
 def test_predict_below_50k(client, below_50k_example):
     response = client.post("/model/", json=below_50k_example)
     assert response.status_code == 200
-    assert response.json() != [0]
+    assert response.json() == [0]
 
 
 def test_predict_above_50k(client, above_50k_example):
