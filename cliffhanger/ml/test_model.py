@@ -42,7 +42,7 @@ def test_model(preds):
 
 # flake8: noqa: F811
 def test_train_model(mocker, X_train, y_train):
-    mock_model = mocker.patch("cliffhanger.ml.model.GaussianNB")
+    mock_model = mocker.patch("cliffhanger.ml.model.SVC")
 
     _ = cmm.train_model(X_train, y_train)
 

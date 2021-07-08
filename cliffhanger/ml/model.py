@@ -1,7 +1,7 @@
 from sklearn.metrics import fbeta_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
-from sklearn.naive_bayes import GaussianNB
+from sklearn.svm import SVC
 
 
 def train_model(X_train, y_train):
@@ -19,7 +19,7 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
-    model = GaussianNB()
+    model = SVC(class_weight="balanced")
     model = model.fit(X_train, y_train)
     return model
 

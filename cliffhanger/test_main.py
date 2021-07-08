@@ -12,20 +12,20 @@ def client():
 @pytest.fixture()
 def below_50k_example():
     return {
-        "age": 21,
-        "fnlgt": 242912,
-        "education-num": 9,
-        "capital-gain": 0,
+        "age": 45,
+        "fnlgt": 2334,
+        "education-num": 13,
+        "capital-gain": 2174,
         "capital-loss": 0,
-        "hours-per-week": 35,
-        "workclass": "Private",
-        "education": "HS-grad",
+        "hours-per-week": 60,
+        "workclass": "State-gov",
+        "education": "Bachelors",
         "marital-status": "Never-married",
-        "occupation": "Other-service",
-        "relationship": "Other-relative",
-        "race": "White",
+        "occupation": "Prof-specialty",
+        "relationship": "Wife",
+        "race": "Black",
         "sex": "Female",
-        "native-country": "United-States",
+        "native-country": "Cuba",
     }
 
 

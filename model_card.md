@@ -1,7 +1,7 @@
 # Cliffhanger Model Card
 
 ## Model Details
-This `Gaussian Naive Bayes` model is called `Cliffhanger`. It is trained on the publicly available `Census Bureau` data
+This `Support Vector Classifier` model is called `Cliffhanger`. It is trained on the publicly available `Census Bureau` data
 to classify users into two groups based on their `salary`. The threshold salary used is $50,000.
 See [Data](#data).
 
@@ -50,9 +50,9 @@ There are 32,561 observations in the dataset and 20% is used as evaluation datas
 
 ## Metrics
 We measure and report three metrics:
-- Precision
-- Recall
-- Fbeta.
+- Precision: 0.82
+- Recall: 0.19
+- Fbeta: 0.31
 The model may be finetuned with any combination of these metrics depending on the business objective to which it is
 applied.
 
